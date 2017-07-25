@@ -1,0 +1,2 @@
+# GxCointoken
+GxCointoken
