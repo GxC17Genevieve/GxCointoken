@@ -29,6 +29,16 @@ contract SafeMath {
         if (!assertion) {
             revert();
         }
+// These invariants should be always true
+    assert(this.balance >= amount_);
+    assert(ownerTokenBalanceWei >= amount_);
+
+    if (!msg.sender.send(amount_)) { 
+      revert();
+    } else {  // All ok then
+      ownerTokenBalanceWei = safeSub(ownerTokenBalanceWei, amount_);
+    }
+  }
     }
 }
 
