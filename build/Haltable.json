@@ -1,0 +1,64 @@
+{
+  "contract_name": "Haltable",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "halt",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "halted",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "unhalt",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    }
+  ],
+  "unlinked_binary": "0x60606040525b60008054600160a060020a03191633600160a060020a03161790555b5b610204806100316000396000f300606060405263ffffffff60e060020a6000350416635ed7ca5b81146100505780638da5cb5b14610065578063b9b8af0b14610094578063cb3e64fd146100bb578063f2fde38b146100d0575b600080fd5b341561005b57600080fd5b6100636100f1565b005b341561007057600080fd5b610078610126565b604051600160a060020a03909116815260200160405180910390f35b341561009f57600080fd5b6100a7610135565b604051901515815260200160405180910390f35b34156100c657600080fd5b610063610145565b005b34156100db57600080fd5b610063600160a060020a036004351661018d565b005b60005433600160a060020a0390811691161461010c57600080fd5b6000805460a060020a60ff02191660a060020a1790555b5b565b600054600160a060020a031681565b60005460a060020a900460ff1681565b60005433600160a060020a0390811691161461016057600080fd5b60005460a060020a900460ff16151561017857600080fd5b6000805460a060020a60ff02191690555b5b5b565b60005433600160a060020a039081169116146101a857600080fd5b600160a060020a038116156101d35760008054600160a060020a031916600160a060020a0383161790555b5b5b505600a165627a7a72305820a77f533bdee82c20670a5c93093e3bcbe68fc9c7331ec87bdb9d6dac6bc37e420029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1501653455878
+}

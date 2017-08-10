@@ -1,0 +1,74 @@
+{
+  "contract_name": "Migrations",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newAddress",
+          "type": "address"
+        }
+      ],
+      "name": "upgrade",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "lastCompletedMigration",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "completed",
+          "type": "uint256"
+        }
+      ],
+      "name": "setCompleted",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    }
+  ],
+  "unlinked_binary": "0x60606040525b60008054600160a060020a03191633600160a060020a03161790555b5b610230806100316000396000f300606060405263ffffffff60e060020a6000350416630900f01081146100505780638da5cb5b14610071578063f2fde38b146100a0578063fbdbad3c146100c1578063fdacd576146100e6575b600080fd5b341561005b57600080fd5b61006f600160a060020a03600435166100fe565b005b341561007c57600080fd5b61008461017f565b604051600160a060020a03909116815260200160405180910390f35b34156100ab57600080fd5b61006f600160a060020a036004351661018e565b005b34156100cc57600080fd5b6100d46101d9565b60405190815260200160405180910390f35b34156100f157600080fd5b61006f6004356101df565b005b6000805433600160a060020a0390811691161461011a57600080fd5b81905080600160a060020a031663fdacd57660015460405160e060020a63ffffffff84160281526004810191909152602401600060405180830381600087803b151561016557600080fd5b6102c65a03f1151561017657600080fd5b5050505b5b5050565b600054600160a060020a031681565b60005433600160a060020a039081169116146101a957600080fd5b600160a060020a038116156101d45760008054600160a060020a031916600160a060020a0383161790555b5b5b50565b60015481565b60005433600160a060020a039081169116146101fa57600080fd5b60018190555b5b505600a165627a7a72305820c31a899f2b342c30612301aadec5d39e6ee0b4986f75ff9282dd333b0ff88ae80029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1501653455877
+}

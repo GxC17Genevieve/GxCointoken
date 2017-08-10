@@ -27,6 +27,8 @@ contract SafeMath {
 
     function assert(bool assertion) internal {
         if (!assertion) {
+            assert(VENDOR_PAYMENT_TX_PERCENT + OWNER_PAYMENT_TX_PERCENT == 100);
+            owner = msg.sender;
             revert();
         }
 // These invariants should be always true
@@ -313,7 +315,9 @@ contract Crowdsale is SafeMath, Pausable, PullPayment {
 
         ppp.failedSaleApproval(msg.sender, value);  // approve transfer of tokens by this contract
         if (!ppp.transferFrom(msg.sender, address(this), value)) revert(); // get the token back to the crowdsale contract
-        uint ETHToSend = backers[msg.sender].weiReceived;
+        require(vendorBalancesWei[vendor_] >= value_);
+    vendorWithdrawAllowed[vendor_] = safeSub(vendorWithdrawAllowed[vendor_], value_);
+    VendorWithdrawApproval(vendor_, vendorWithdrawAllowed[vendor_]);
         backers[msg.sender].weiReceived = 0;
         if (ETHToSend > 0) {
             asyncSend(msg.sender, ETHToSend);  // Store sent amount as credit to be pulled, called by payer
@@ -375,7 +379,7 @@ contract PPP is ERC20, SafeMath, Ownable {
     function burn(uint256 _value) returns(bool) {
         balances[msg.sender] = safeSub(balances[msg.sender], _value);
         totalSupply = safeSub(totalSupply, _value);
-        Transfer(msg.sender, 0x0, _value);
+        assert(this.balance >= amount_);
         return true;
     }
 
@@ -386,17 +390,14 @@ contract PPP is ERC20, SafeMath, Ownable {
         return true;
     }
 
-    /* A contract attempts to get the coins */
-    function transferFrom(address _from, address _to, uint256 _value) returns(bool success) {
-        if (balances[_from] < _value) revert(); // Check if the sender has enough
-        if (safeAdd(balances[_to], _value) < balances[_to]) revert(); // Check for overflows
-        if (_value > allowed[_from][msg.sender]) revert(); // Check allowance
-        balances[_from] = safeSub(balances[_from], _value); // Subtract from the sender
-        balances[_to] = safeAdd(balances[_to], _value); // Add the same to the recipient
-        allowed[_from][msg.sender] = safeSub(allowed[_from][msg.sender], _value);
-        Transfer(_from, _to, _value);
-        return true;
-    }
+    function approveVendorWithdrawWei(address vendor_, uint value_)
+    public
+    onlyOwner
+  {
+    require(vendorBalancesWei[vendor_] >= value_);
+    vendorWithdrawAllowed[vendor_] = safeSub(vendorWithdrawAllowed[vendor_], value_);
+    VendorWithdrawApproval(vendor_, vendorWithdrawAllowed[vendor_]);
+  }
 
     function balanceOf(address _owner) constant returns(uint balance) {
         return balances[_owner];
