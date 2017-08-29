@@ -1,0 +1,21 @@
+{
+    "abi": "[{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"payments\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"RefundETH\",\"type\":\"event\"}]",
+    "bytecode": "6060604052341561000f57600080fd5b5b60b58061001e6000396000f300606060405263ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663e2982c218114603c575b600080fd5b3415604657600080fd5b606573ffffffffffffffffffffffffffffffffffffffff600435166077565b60405190815260200160405180910390f35b600060208190529081526040902054815600a165627a7a72305820cda38fc3ba8ed5cfeafd54dee2f11a85b555453d851fad82571b5e4e25e4ada40029",
+    "functionHashes": {
+        "payments(address)": "e2982c21"
+    },
+    "gasEstimates": {
+        "creation": [
+            83,
+            36200
+        ],
+        "external": {
+            "payments(address)": 433
+        },
+        "internal": {
+            "asyncSend(address,uint256)": null,
+            "withdrawPayments()": null
+        }
+    },
+    "runtimeBytecode": "606060405263ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663e2982c218114603c575b600080fd5b3415604657600080fd5b606573ffffffffffffffffffffffffffffffffffffffff600435166077565b60405190815260200160405180910390f35b600060208190529081526040902054815600a165627a7a72305820cda38fc3ba8ed5cfeafd54dee2f11a85b555453d851fad82571b5e4e25e4ada40029"
+}
